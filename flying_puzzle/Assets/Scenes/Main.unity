@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4488284, g: 0.49889052, b: 0.5756974, a: 1}
+  m_IndirectSpecularColor: {r: 0.44061834, g: 0.48925972, b: 0.56939757, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -828,13 +828,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1395947955}
-  m_LocalRotation: {x: 0.8707461, y: -0.24059337, z: 0.29546517, w: 0.31083187}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.5744327, y: -0.36048606, z: 0.12342869, w: 0.72446}
+  m_LocalPosition: {x: 0, y: 3, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 136.883, y: -30, z: 18.806}
+  m_LocalEulerAnglesHint: {x: 112.884, y: 101.895, z: 142.762}
 --- !u!1 &1418497640
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,7 +948,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -993,13 +993,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1665279753}
-  m_LocalRotation: {x: 0.19847326, y: -0, z: -0, w: 0.9801063}
+  m_LocalRotation: {x: -0.19235007, y: -0, z: -0, w: 0.98132646}
   m_LocalPosition: {x: 0, y: -2.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 22.895, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -22.18, y: 0, z: 0}
 --- !u!1 &2027323632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,7 +1131,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1716409263
+  randomSeed: -999149843
   InitialModule:
     serializedVersion: 3
     enabled: 1
