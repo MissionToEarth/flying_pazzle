@@ -5,6 +5,7 @@ using System;
 
 using Utilities;
 
+
 public class FallingBlockPuzzleManager : MonoBehaviour
 {
 	enum PHASE
@@ -165,20 +166,24 @@ public class FallingBlockPuzzleManager : MonoBehaviour
 
 		float dest_x = 0;
 		float dest_y = -0.062f;
-		foreach (PuzzleBlock block in this.block_list)
+		foreach (PuzzleBlock block in this.block_list.ToArray())
 		{
 			block.Move (dest_x, dest_y);
 			if (HitBlock (block))
 			{
 				Debug.Log ("HIT BLOCK");
-				block.Move (-dest_x, -dest_y);			
+				block.Move (-dest_x, -dest_y);
 				this.block_list.Remove (block);
+
+				this.table[GetGridRowIndex (block), GetGridColIndex (block)] = 1;
 			}
 			else if (HitGround (block))
 			{
 				Debug.Log ("HIT GOUND");
 				block.Move (-dest_x, -dest_y);
 				this.block_list.Remove (block);
+
+				this.table[GetGridRowIndex (block), GetGridColIndex (block)] = 1;
 			}
 
 			if (this.block_list.Count <= 0)
@@ -188,15 +193,49 @@ public class FallingBlockPuzzleManager : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Gets the index of the grid row.
+	/// </summary>
+	/// <returns>The grid row index.</returns>
+	/// <param name="block">Block.</param>
+	int GetGridRowIndex(PuzzleBlock block)
+	{
+		Vector3 vec = (Vector2)block.transform.position - Window.GetWorldMin();
+		int row_idx = (int)(vec.x / this.grid_width);
+		row_idx = Mathf.Clamp (row_idx, 0, row_max - 1);
+
+		return row_idx;
+	}
+
+	/// <summary>
+	/// Gets the index of the grid col.
+	/// </summary>
+	/// <returns>The grid col index.</returns>
+	/// <param name="block">Block.</param>
+	int GetGridColIndex(PuzzleBlock block)
+	{
+		Vector2 vec = (Vector2)block.transform.position - Window.GetWorldMin();
+		int col_idx = (int)(vec.y / this.grid_width);
+		col_idx = Mathf.Clamp (col_idx, 0, col_max - 1);
+
+		return col_idx;
+	}
+
+	/// <summary>
+	/// Hits the block.
+	/// </summary>
+	/// <returns><c>true</c>, if block was hit, <c>false</c> otherwise.</returns>
+	/// <param name="block">Block.</param>
 	bool HitBlock (PuzzleBlock block)
 	{
-		int row_idx = (int)(block.transform.position.x / this.grid_width);
-		int col_idx = (int)(block.transform.position.y / this.grid_height);
+		Vector3 vec = (Vector2)block.transform.position - Window.GetWorldMin();
+		int row_idx = (int)(vec.x / this.grid_width);
+		int col_idx = (int)(vec.y / this.grid_height);
 
 		Debug.LogFormat ("RAW : [row {0} : col {1}]", row_idx, col_idx);
 
-		row_idx = Mathf.Clamp (row_idx, 0, row_max);
-		col_idx = Mathf.Clamp (col_idx, 0, col_max);
+		row_idx = Mathf.Clamp (row_idx, 0, row_max - 1);
+		col_idx = Mathf.Clamp (col_idx, 0, col_max - 1);
 
 		Debug.LogFormat ("Clamp : [row {0} : col {1}]", row_idx, col_idx);
 
