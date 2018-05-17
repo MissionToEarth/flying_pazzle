@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 940ede0195fac4a53a117e29b4728b68
+  - enabled: 1
+    path: Assets/Scenes/FallingBlockPuzzle.unity
+    guid: 55222ab71ad8d418297046dcab049ef6
